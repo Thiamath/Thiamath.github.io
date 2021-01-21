@@ -57,6 +57,10 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+# Config for Bootstrap
+sass:
+  sass_dir: assets/css
+
 # Config for Github
 lsi: false
 safe: true
@@ -68,7 +72,3 @@ gist:
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
-
-# Config for Bootstrap
-sass:
-  sass_dir: assets/css

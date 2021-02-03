@@ -5,7 +5,7 @@ title:  My first animation
 ---
 
 <div class="thiamath-pixel-display">
-    {% assign image_files = site.static_files | sort: "basename" %}
+    {% assign image_files = site.static_files | where: "extname", ".gif" | sort: "basename" %}
     {% for myimage in image_files %}
     <img alt="{{ myimage.basename }}" src="{{ myimage.path }}">
     {% endfor %}

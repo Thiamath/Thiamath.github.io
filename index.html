@@ -1,9 +1,28 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: default
-title: Thiamath title
+title: Thiamath's'
+retro: true
 ---
 
-Initial web.
+<div class="container pt-lg-50">
+    <h1>Welcome to Thiamath's!</h1>
+
+    <p>You are on a cozy tavern in the Internet.</p>
+
+    <p>Taking a look around, you see a lot of different people here.</p>
+
+    <p>You step to the bartender for a profitable conversation:</p>
+
+    <code>"Ahoy stranger, I'm Thiamath myself!<br>
+        Here is a bunch of things you can do here!<br>
+        Choose your poison!"</code>
+    <br>
+    <br>
+    <br>
+
+    <p>
+        {% for item in site.data.navbar %}
+        <a href="{{ item.link }}">{{ item.dialog[0] }}</a><br><br>
+        {% endfor %}
+    </p>
+</div>

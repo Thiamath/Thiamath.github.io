@@ -5,9 +5,11 @@ title:  My first animation
 ---
 
 <div class="thiamath-pixel-display">
-    {% assign image_files = site.static_files | where: "image", true | where: "path", "contains 'java_cup'" | sort: "basename" %}
-    {% for myimage in image_files %}
-    <img alt="{{ myimage.basename }}" src="{{ myimage.path }}">
+    {% assign image_files = site.static_files | where: "image", true | sort: "basename" %}
+    {% for myImage in image_files %}
+        {% if myImage.basename contains "java_cup" %}
+    <img alt="{{ myImage.basename }}" src="{{ myImage.path }}">
+        {% endif %}}
     {% endfor %}
 </div>
 <p>This is a cup of coffee.</p>

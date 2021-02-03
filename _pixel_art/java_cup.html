@@ -1,0 +1,19 @@
+---
+layout: default
+date:   2021-01-30 02:15:45 +0200
+title:  My first animation
+---
+
+<div class="thiamath-pixel-display">
+    {% assign image_files = site.static_files | where_exp: "item", "item.extname == '.gif' and item.basename contains
+    'java_cup'" | sort: "basename" %}
+    {% for myimage in image_files %}
+    <img alt="{{ myimage.basename }}" src="{{ myimage.path }}">
+    {% endfor %}
+</div>
+<p>This is a cup of coffee.</p>
+<ul class="nes-list is-disc">
+    <li>Palette: <a href="https://lospec.com/palette-list/harshgreens">LOSPEC Harshgreens palette by WildLeoKnight</a>
+    </li>
+    <li>Size: 16x16 pixels</li>
+</ul>

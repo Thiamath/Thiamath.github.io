@@ -1,0 +1,19 @@
+---
+layout: default
+title: Pixel art museum
+style: retro
+---
+
+<div id="nescss">
+    <div class="container">
+        <h1 class="thiamath-title">Thiamath's pixel art museum</h1>
+        <div id="containers" class="item">
+            {% for post in site.pixel_art %}
+            <div class="nes-container with-title">
+                <p class="title">{{ post.title }}</p>
+                {{ post.content }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

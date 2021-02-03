@@ -77,3 +77,9 @@ collections:
   pixel_art:
     style: retro
 
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
+

@@ -1,28 +1,28 @@
 ---
 layout: default
-title: Thiamath's'
-retro: true
+title: Thiamath's
 ---
 
-<div class="container pt-lg-50">
-    <h1>Welcome to Thiamath's!</h1>
+<div class="container pt-lg-50 thiamath-index-page justify-content-evenly">
+    <header class="text-center"><h1>Welcome to Thiamath's!</h1></header>
 
-    <p>You are on a cozy tavern in the Internet.</p>
+    <div class="container fs-5 mt-5">
+        <p> > You are on a cozy tavern in the Internet.</p>
 
-    <p>Taking a look around, you see a lot of different people here.</p>
+        <p> > Taking a look around, you see a lot of different people here.</p>
 
-    <p>You step to the bartender for a profitable conversation:</p>
+        <p> > You step to the bartender for a profitable conversation:</p>
 
-    <code>"Ahoy stranger, I'm Thiamath myself!<br>
-        Here is a bunch of things you can do here!<br>
-        Choose your poison!"</code>
-    <br>
-    <br>
-    <br>
+        <code>"Ahoy stranger, I'm Thiamath myself!<br>
+            Here is a bunch of things you can do here.<br>
+            What's your poison?"</code>
+        <br>
+        <br>
 
-    <p>
-        {% for item in site.data.navbar %}
-        <a href="{{ item.link }}">{{ item.dialog[0] }}</a><br><br>
-        {% endfor %}
-    </p>
+        <p class="">
+            {% for item in site.data.navbar %}
+        <p><a href="{{ item.link }}">{{ item.dialog[0] }}</a></p>
+            {% endfor %}
+        </p>
+    </div>
 </div>

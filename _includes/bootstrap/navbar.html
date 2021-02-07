@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-adapted sticky-top">
+<nav id="main-nav-bar" class="navbar navbar-expand-lg bg-adapted sticky-top navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Thiamath</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -63,6 +63,9 @@
         let isDark = getCookie("dark")
         console.log("Dark cookie -> " + getCookie("dark"))
         mainStylesheet.href = mainStylesheet.href.replace(/light/gi, 'dark');
+        let navbar = document.getElementById("main-nav-bar");
+        navbar.classList.remove('navbar-light');
+        navbar.classList.add('navbar-dark');
     }
 
     function setLight() {
@@ -70,6 +73,9 @@
         let isDark = getCookie("dark")
         if (debug) console.log("Dark cookie -> " + getCookie("dark"))
         mainStylesheet.href = mainStylesheet.href.replace(/dark/gi, 'light');
+        let navbar = document.getElementById("main-nav-bar");
+        navbar.classList.remove('navbar-dark');
+        navbar.classList.add('navbar-light');
     }
 
     function toggleDark() {

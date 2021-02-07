@@ -15,13 +15,14 @@
             </ul>
             <div class="py-2 px-3 rounded-pill">
                 <div class="form-check form-switch">
-<!--                    <label id="darkModeLabelSun" for="darkModeSwitch">-->
-<!--                        <i class="bi-sun"></i>-->
-<!--                    </label>-->
-                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked onclick="toDark()">
-<!--                    <label id="darkModeLabelMoon" for="darkModeSwitch">-->
+                    <label id="darkModeLabelSun" for="darkModeSwitch" style="margin: 0px 0 0 -60px;">
+                        <i class="bi-sun"></i>
+                    </label>
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked onclick="toggleDark()"
+                           style="height: 1.2em; width: 2.5em;">
+                    <label id="darkModeLabelMoon" for="darkModeSwitch" style="margin: 0 0 0 50px;">
                         <i class="bi-moon"></i>
-<!--                    </label>-->
+                    </label>
                 </div>
             </div>
         </div>
@@ -29,14 +30,57 @@
 </nav>
 
 <script type="text/javascript">
-    function toDark() {
-        console.log("toggled")
-        const mainStylesheet = document.getElementById("thiamath-main-css");
-        const darkModeSwitch = document.getElementById("darkModeSwitch");
-        if (!darkModeSwitch.checked) {
-            mainStylesheet.href = mainStylesheet.href.replace(/dark/gi, 'light');
+    const debug = true;
+
+    const mainStylesheet = document.getElementById("thiamath-main-css");
+    const darkModeSwitch = document.getElementById("darkModeSwitch");
+
+    function initDarkMode() {
+        if (debug) console.log("initDarkMode()")
+        if (getCookie("dark").length === 0) {
+            console.log("NO COOKIE");
+            let isDark = darkModeSwitch.checked
+            setCookie("dark", darkModeSwitch.checked, 3650);
         } else {
-            mainStylesheet.href = mainStylesheet.href.replace(/light/gi, 'dark');
+            let isDark = getCookie("dark") === 'true';
+            console.log("Dark cookie -> " + getCookie("dark"));
+            console.log("isDark.type -> " + typeof isDark);
+            console.log("isDark -> " + isDark);
+            console.log("darkModeSwitch.checked -> " + darkModeSwitch.checked);
+            darkModeSwitch.checked = isDark;
+            console.log("darkModeSwitch.checked -> " + darkModeSwitch.checked);
+            if (!isDark) {
+                console.log("Setting light cuz isDark -> " + isDark);
+                setLight();
+            }
+        }
+    }
+
+    initDarkMode();
+
+    function setDark() {
+        if (debug) console.log(("Setting DARK MODE"))
+        let isDark = getCookie("dark")
+        console.log("Dark cookie -> " + getCookie("dark"))
+        mainStylesheet.href = mainStylesheet.href.replace(/light/gi, 'dark');
+    }
+
+    function setLight() {
+        if (debug) console.log(("Setting LIGHT MODE"))
+        let isDark = getCookie("dark")
+        if (debug) console.log("Dark cookie -> " + getCookie("dark"))
+        mainStylesheet.href = mainStylesheet.href.replace(/dark/gi, 'light');
+    }
+
+    function toggleDark() {
+        if (debug) console.log("Toggling dark mode")
+        let isDark = darkModeSwitch.checked
+        if (isDark) {
+            setCookie("dark", true, 3650)
+            setDark()
+        } else {
+            setCookie("dark", false, 3650)
+            setLight()
         }
     }
 </script>

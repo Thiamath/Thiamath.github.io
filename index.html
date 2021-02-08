@@ -13,16 +13,20 @@ title: Thiamath's
 
         <p> > You step to the bartender for a profitable conversation:</p>
 
-        <code>"Ahoy stranger, I'm Thiamath myself!<br>
-            Here is a bunch of things you can do here.<br>
-            What's your poison?"</code>
+        <div card d-inline-block fa-sm shadow-sm text-success>
+            <div class="card-body">
+                <p class="card-text">"Ahoy stranger, I'm Thiamath myself!<br>
+                Here is a bunch of things you can do here.<br>
+                What's your poison?"</p>
+            </div>
+        </div>
         <br>
         <br>
 
         <p class="">
             {% for item in site.data.navbar %}
-        <p><a href="{{ item.link }}">{{ item.dialog[0] }}</a></p>
-            {% endfor %}
+        <p><a href="{{ item.link }}" class="link-light">{{ item.dialog[0] }}</a></p>
+        {% endfor %}
         </p>
     </div>
 </div>

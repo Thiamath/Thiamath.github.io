@@ -13,7 +13,7 @@ title: Thiamath's
 
         <p> > You step to the bartender for a profitable conversation:</p>
 
-        <div card d-inline-block fa-sm shadow-sm text-success>
+        <div class="card d-inline-block fa-sm shadow-sm text-success">
             <div class="card-body">
                 <p class="card-text">"Ahoy stranger, I'm Thiamath myself!<br>
                 Here is a bunch of things you can do here.<br>
@@ -23,9 +23,9 @@ title: Thiamath's
         <br>
         <br>
 
-        <p class="">
+        <p>
             {% for item in site.data.navbar %}
-        <p><a href="{{ item.link }}" class="link-light">{{ item.dialog[0] }}</a></p>
+        <p><a href="{{ item.link }}" class="link-primary">{{ item.dialog[0] }}</a></p>
         {% endfor %}
         </p>
     </div>

@@ -16,17 +16,22 @@ title: Thiamath's
         <div class="card d-inline-block fa-sm shadow-sm text-success">
             <div class="card-body">
                 <p class="card-text">"Ahoy stranger, I'm Thiamath myself!<br>
-                Here is a bunch of things you can do here.<br>
-                What's your poison?"</p>
+                    Here is a bunch of things you can do here.<br>
+                    What's your poison?"</p>
             </div>
         </div>
         <br>
         <br>
 
         <p>
-            {% for item in site.data.navbar %}
-        <p><a href="{{ item.link }}" class="link-primary">{{ item.dialog[0] }}</a></p>
-        {% endfor %}
+            {% assign pages = site.pages | group_by: "menu" %}
+            {% for item in pages %}
+            {% if item.name != "" %}
+            {% assign page = item.items.first %}
+            <p><a href="{{ page.url }}" class="link-primary">{{ page.dialog[0] }}</a></p>
+            {% endif %}
+            {% endfor %}
+
         </p>
     </div>
 </div>

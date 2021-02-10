@@ -7,10 +7,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                {% for item in site.data.navbar %}
+                {% assign pages = site.pages | group_by: "menu" %}
+                {% for item in pages %}
+                {% if item.name != "" %}
+                {% assign page = item.items.first %}
                 <li class="nav-item">
-                    <a class="nav-item nav-link" href="{{ item.link }}">{{ item.name }}</a>
+                    <a class="nav-item nav-link" href="{{ page.url }}">{{ page.menu }}</a>
                 </li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <div class="form-check form-switch">

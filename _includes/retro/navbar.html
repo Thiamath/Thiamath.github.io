@@ -3,6 +3,13 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="/" class="brand-logo">Thiamath</a>
+                {% assign pages = site.pages | group_by: "menu" %}
+                {% for item in pages %}
+                {% if item.name != "" %}
+                {% assign page = item.items.first %}
+                <a href="{{ page.url }}" class="nes-btn nav-link">{{ page.menu_short | default: page.menu }}</a>
+                {% endif %}
+                {% endfor %}
                 {% for item in site.data.navbar %}
                 <a href="{{ item.link }}" class="nes-btn nav-link">{{ item.short | default: item.name }}</a>
                 {% endfor %}
@@ -14,15 +21,15 @@
                        target="_blank">
                         <i class="nes-icon twitter"></i>
                     </a>
-                    <a href="https://www.facebook.com/sharer.php?u=https://nostalgic-css.github.io/NES.css/&amp;t=NES.css%EF%BD%9CNES-style%20CSS%20Framework"
+                    <a href='https://www.facebook.com/sharer.php?u=https://thiamath.github.io&amp;t={{ "Hey! check out this great blog!" | url_encode }}'
                        target="_blank">
                         <i class="nes-icon facebook"></i>
                     </a>
-                    <a href="https://www.linkedin.com/shareArticle?url=https%3A//nostalgic-css.github.io/NES.css/&amp;title=NES.css%EF%BD%9CNES-style%20CSS%20Framework"
+                    <a href='https://www.linkedin.com/shareArticle?url=https%3A//thiamath.github.io&amp;title={{ "Hey! check out this great blog!" | url_encode }}'
                        target="_blank">
                         <i class="nes-icon linkedin"></i>
                     </a>
-                    <a href="https://github.com/nostalgic-css/NES.css" target="_blank">
+                    <a href="https://github.com/thiamath" target="_blank">
                         <i class="nes-icon github"></i>
                     </a>
                 </div>

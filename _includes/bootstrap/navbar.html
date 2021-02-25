@@ -1,4 +1,4 @@
-<nav id="main-nav-bar" class="navbar navbar-expand-lg bg-adapted sticky-top navbar-dark">
+<nav id="main-nav-bar" class="navbar navbar-expand-lg bg-adapted sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Thiamath</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -9,7 +9,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {% assign pages = site.pages | group_by: "menu" %}
                 {% for item in pages %}
-                {% if item.name != "" %}
+                {% if item.name != "" and item.name != "__false" %}
                 {% assign page = item.items.first %}
                 <li class="nav-item">
                     <a class="nav-item nav-link" href="{{ page.url }}">{{ page.menu }}</a>

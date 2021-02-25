@@ -28,7 +28,7 @@ title: Thiamath's
             {% for item in pages %}
             {% if item.name != "" %}
             {% assign page = item.items.first %}
-            <p><a href="{{ page.url }}" class="link-primary">{{ page.dialog[0] }}</a></p>
+            <p><a href="{{ page.link | default: page.url }}" class="link-primary">{{ page.dialog[0] }}</a></p>
             {% endif %}
             {% endfor %}
 

@@ -5,7 +5,7 @@
                 <a href="/" class="brand-logo">Thiamath</a>
                 {% assign pages = site.pages | group_by: "menu" %}
                 {% for item in pages %}
-                {% if item.name != "" %}
+                {% if item.name != "" and item.name != "__false" %}
                 {% assign page = item.items.first %}
                 <a href="{{ page.url }}" class="nes-btn nav-link">{{ page.menu_short | default: page.menu }}</a>
                 {% endif %}
